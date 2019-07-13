@@ -140,4 +140,14 @@ function reset() {
             animation: google.maps.Animation.DROP,
             icon: markerIcon
           });
+          
+          // When the user clicks on the accomodation marker it shows the details of that place
+          markers[i].placeResult = results[i];
+          google.maps.event.addListener(markers[i], 'click', showInfoWindow);
+          setTimeout(dropMarker(i), i * 100);
+          addResult(results[i], i);
+        }
+      }
+    });
+  }
 		  
