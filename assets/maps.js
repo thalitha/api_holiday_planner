@@ -5,7 +5,7 @@
   var MARKER_PATH = 'https://developers.google.com/maps/documentation/javascript/images/marker_green';
   var hostnameRegexp = new RegExp('^https?://.+?/');
 
- var countries = {
+  var countries = {
     'au': {
       center: { lat: -25.3, lng: 133.8 },
       zoom: 4
@@ -72,12 +72,12 @@
       zoom: 5
     }
   };
-  
-function reset() {
+
+  function reset() {
     location.reload();
   }
-  
-   function initMap() {
+
+  function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
       zoom: countries.uk.zoom,
       center: countries.uk.center,
@@ -99,7 +99,8 @@ function reset() {
     places = new google.maps.places.PlacesService(map);
     autocomplete.addListener('place_changed', onPlaceChanged);
   }
-  
+
+
   function onPlaceChanged(placeType) {
     var place = autocomplete.getPlace();
     if (place) {
@@ -112,7 +113,7 @@ function reset() {
     }
   }
   
- // Searching for accomodations, bars/restaurants and tourist attractions
+  // Searching for accomodations, bars/restaurants and tourist attractions
   function search(pt) {
     clearResults();
     clearMarkers();
@@ -128,19 +129,19 @@ function reset() {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         clearResults();
         clearMarkers();
-
-       // Creating a marker for the accomodation got
+		
+        // Creating a marker for the accomodation got
         for (var i = 0; i < results.length; i++) {
           var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
           var markerIcon = MARKER_PATH + markerLetter + '.png';
-
-         // Marker animations - dropping the icons incrementally on the map.
+		  
+          // Marker animations - dropping the icons incrementally on the map.
           markers[i] = new google.maps.Marker({
             position: results[i].geometry.location,
             animation: google.maps.Animation.DROP,
             icon: markerIcon
           });
-          
+
           // When the user clicks on the accomodation marker it shows the details of that place
           markers[i].placeResult = results[i];
           google.maps.event.addListener(markers[i], 'click', showInfoWindow);
@@ -150,8 +151,8 @@ function reset() {
       }
     });
   }
-  
-    function clearMarkers() {
+
+  function clearMarkers() {
     for (var i = 0; i < markers.length; i++) {
       if (markers[i]) {
         markers[i].setMap(null);
@@ -159,15 +160,15 @@ function reset() {
     }
     markers = [];
   }
-  
-    function dropMarker(i) {
+
+  function dropMarker(i) {
     return function() {
       if (markers[i])
         markers[i].setMap(map);
     };
   }
-  
-    function addResult(result, i) {
+
+  function addResult(result, i) {
     var results = document.getElementById('results');
     var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
     var markerIcon = MARKER_PATH + markerLetter + '.png';
@@ -177,8 +178,8 @@ function reset() {
     tr.onclick = function() {
       google.maps.event.trigger(markers[i], 'click');
     };
-    
-   var iconTd = document.createElement('td');
+
+    var iconTd = document.createElement('td');
     var nameTd = document.createElement('td');
     var icon = document.createElement('img');
     icon.src = markerIcon;
@@ -191,15 +192,15 @@ function reset() {
     tr.appendChild(nameTd);
     results.appendChild(tr);
   }
-  
-   function clearResults() {
+
+  function clearResults() {
     var results = document.getElementById('results');
     while (results.childNodes[0]) {
       results.removeChild(results.childNodes[0]);
     }
   }
   
- // Getting the locations details for accomodations
+  // Getting the locations details for accomodations
 
   function showInfoWindow() {
     var marker = this;
@@ -212,8 +213,8 @@ function reset() {
         buildIWContent(place);
       });
   }
-  
-    // Loading the location information's into the HTML elements used by the info window
+
+  // Loading the location information's into the HTML elements used by the info window
   function buildIWContent(place) {
     if (place) {
       document.getElementById('iw-icon').innerHTML = '<img class="hotelIcon" ' + 'src="' + place.icon + '"/>';
@@ -265,5 +266,3 @@ function reset() {
       document.getElementById('iw-website-row').style.display = 'none';
     }
   }
-  
-		  
