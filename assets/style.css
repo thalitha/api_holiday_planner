@@ -22,3 +22,23 @@ container-fluid {
 row {
     order: 1;
 }
+
+/* header name section */
+
+h2 {
+    margin-bottom: 20px;
+}
+
+#main-header {
+    margin: 20px;
+}
+
+/* city autocomplete text box area */
+
+.destination {
+    margin-top: 5px;
+}
+
+#autocomplete {
+    width: 600px;
+    text-align: center;
