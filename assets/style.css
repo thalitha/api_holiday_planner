@@ -80,6 +80,14 @@ a:hover {
     margin-top: 20px;
 }
 
+/* form area */
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 /* results area */
 
 table {
