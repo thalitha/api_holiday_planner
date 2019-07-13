@@ -111,3 +111,20 @@ function reset() {
       document.getElementById('autocomplete').placeholder = 'Enter a city';
     }
   }
+  
+ // Searching for accomodations, bars/restaurants and tourist attractions
+  function search(pt) {
+    clearResults();
+    clearMarkers();
+    $("#accomodationButton").val("Accomodation");
+    $("#barsRestaurantsButton").val("Bars/Restaurants");
+    $("#touristButton").val("Tourist Attractions");
+    var search = {
+      bounds: map.getBounds(),
+      types: pt
+    };
+
+    places.nearbySearch(search, function(results, status) {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        clearResults();
+        clearMarkers();
