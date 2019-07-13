@@ -44,4 +44,17 @@ h2 {
     text-align: center;
 }
 
+/* search locations */
+
+a {
+    width: 100%;
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #333;
+    text-decoration: none;
+}
+
 
