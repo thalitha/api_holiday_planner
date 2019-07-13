@@ -57,6 +57,29 @@ a:hover {
     text-decoration: none;
 }
 
+/* buttons */
+
+#button {
+    margin-bottom: 20px;
+}
+
+#slbuttons {
+    margin: 20px;
+    line-height: 2;
+    font-size: 15px;
+    text-align: center;
+}
+
+#sl-return {
+    width: 250px;
+    margin-bottom: 10px;
+}
+
+.col-sm-12 {
+    text-align: center;
+    margin-top: 20px;
+}
+
 /* results area */
 
 table {
