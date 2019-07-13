@@ -159,4 +159,11 @@ function reset() {
     }
     markers = [];
   }
+  
+    function dropMarker(i) {
+    return function() {
+      if (markers[i])
+        markers[i].setMap(map);
+    };
+  }
 		  
