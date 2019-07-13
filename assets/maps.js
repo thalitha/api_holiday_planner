@@ -198,4 +198,18 @@ function reset() {
       results.removeChild(results.childNodes[0]);
     }
   }
+  
+ // Getting the locations details for accomodations
+
+  function showInfoWindow() {
+    var marker = this;
+    places.getDetails({ placeId: marker.placeResult.place_id },
+      function(place, status) {
+        if (status !== google.maps.places.PlacesServiceStatus.OK) {
+          return;
+        }
+        infoWindow.open(map, marker);
+        buildIWContent(place);
+      });
+  }
 		  
