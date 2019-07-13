@@ -125,5 +125,35 @@ table {
     display: inline;
 }
 
+* media queries */
+
+@media (min-width: 768px) {
+    #sl-return {
+        display: none;
+    }
+    #listing {
+        height: 30vh;
+    }
+}
+
+@media (min-width: 992px) {
+    #map {
+        height: 40vh;
+    }
+
+    form {
+        font-size: 10px;
+    }
+    #listing {
+        height: 55vh;
+    }
+}
+
+@media (min-width: 1600px) {
+    #listing {
+        height: 38vh;
+    }
+}
+
 
 
