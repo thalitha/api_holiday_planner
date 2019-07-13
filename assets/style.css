@@ -18,3 +18,7 @@ container-fluid {
     align-items: flex-start;
     height: 100%;
 }
+
+row {
+    order: 1;
+}
