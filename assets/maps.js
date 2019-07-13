@@ -128,3 +128,9 @@ function reset() {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         clearResults();
         clearMarkers();
+
+       // Creating a marker for the accomodation got
+        for (var i = 0; i < results.length; i++) {
+          var markerLetter = String.fromCharCode('A'.charCodeAt(0) + (i % 26));
+          var markerIcon = MARKER_PATH + markerLetter + '.png';
+		  
