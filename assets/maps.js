@@ -73,8 +73,8 @@
     }
   };
   
-    function reset() {
-     location.reload();
+function reset() {
+    location.reload();
   }
   
    function initMap() {
@@ -98,4 +98,16 @@
 
     places = new google.maps.places.PlacesService(map);
     autocomplete.addListener('place_changed', onPlaceChanged);
+  }
+  
+  function onPlaceChanged(placeType) {
+    var place = autocomplete.getPlace();
+    if (place) {
+      map.panTo(place.geometry.location);
+      map.setZoom(15);
+      search(placeType);
+    }
+    else {
+      document.getElementById('autocomplete').placeholder = 'Enter a city';
+    }
   }
