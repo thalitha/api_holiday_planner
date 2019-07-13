@@ -72,3 +72,30 @@
       zoom: 5
     }
   };
+  
+    function reset() {
+     location.reload();
+  }
+  
+   function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      zoom: countries.uk.zoom,
+      center: countries.uk.center,
+      mapTypeControl: true,
+      panControl: true,
+      zoomControl: true,
+      streetViewControl: true,
+    });
+
+    infoWindow = new google.maps.InfoWindow({
+      content: document.getElementById('info-content')
+    });
+
+    autocomplete = new google.maps.places.Autocomplete((document.getElementById('autocomplete')), {
+      types: ['(cities)'],
+      componentRestrictions: countryRestrict
+    });
+
+    places = new google.maps.places.PlacesService(map);
+    autocomplete.addListener('place_changed', onPlaceChanged);
+  }
