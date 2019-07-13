@@ -13,9 +13,7 @@
 </head>
 
 <body>
-    
     <!-- main header -->
-
     <header class="container-fluid text-center">
         <div id="main-header">
             <h1 class="header-name"><i>Holiday Destination Planner</i></h1>
@@ -30,9 +28,12 @@
                         <h2 class="destination">Choose your destination</h2>
                         <div class="cityselection">     
                             <input id="autocomplete" placeholder="Enter a city" type="text" />     
-                        </div>     
+                            <div>
+                                <br/>
+                            </div>
+                        </div>    
         
-    <!-- search locations -->  
+                        <!-- search locations -->  
                         <div id="slbuttons">
                             <div class="btn btn-info" onclick="onPlaceChanged(['lodging'])">Accommodation</div> 
                             <div class="btn btn-warning" onclick="onPlaceChanged(['bar', 'restaurant'])">Bars/Restaurants</div>
@@ -47,15 +48,16 @@
         </div>
 
        <div class="row">
-    <!-- map -->
+                <!-- map -->
                 <div class="col-sm-12 text-center">
                         <div id="map"></div>        
                 </div>
         </div>
+        
         <div class="row">
             <div class="col-sm-12 text-center">
 			
-    <!-- results section-->
+                <!-- results section-->
                 <div id="resultsdropdown"></div>
                 <div id="listing">
                     <table id="resultsTable">
